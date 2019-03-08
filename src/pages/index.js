@@ -1,26 +1,35 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql, Link } from 'gatsby'
 
-const Index = ({ data: { prismicHomepage } }) => (
-  <React.Fragment>
-    <h1>{prismicHomepage.data.title.text}</h1>
-    <div
-      dangerouslySetInnerHTML={{ __html: prismicHomepage.data.content.html }}
-    />
-  </React.Fragment>
-)
+export default ({ data }) => {
+  return (
+    <div>
+      {data.allPrismicFaq.edges.map(({ node }) => (
+        <div key={node.id}>
+          <Link to={node.uid}>
+            {node.data.question.text}
+          </Link>
+        </div>
+      ))}
+    </div>
+  )
+}
 
-export default Index
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    prismicHomepage {
-      data {
-        title {
-          text
-        }
-        content {
-          html
+export const query = graphql`
+  query {
+    allPrismicFaq {
+      edges {
+        node {
+          id
+          uid
+          data {
+            question {
+              text
+            }
+            answer {
+              html
+            }
+          }
         }
       }
     }
