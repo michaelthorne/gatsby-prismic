@@ -10,7 +10,7 @@ export default ({ data }) => {
       <tbody>
       {data.allPrismicFaq.edges.map(({ node }) => (
         <tr key={node.id}>
-          <td className="accordion" onClick={toggleClass}>
+          <td className="accordion">
             <div className="link">{node.data.question.text}
               <span className="arrow">
                 <img src={iconArrow} width="16" height="26" alt=""/>
