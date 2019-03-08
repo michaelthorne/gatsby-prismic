@@ -392,6 +392,7 @@ input[disabled] {
 
 .table td.accordion {
   border-bottom: 0;
+  cursor: pointer;
 }
 
 .table p {

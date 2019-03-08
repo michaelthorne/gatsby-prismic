@@ -1,27 +1,36 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+
+import iconArrow from '../images/icon-arrow.svg'
 
 export default ({ data }) => {
   return (
-    <div>
+    <table id="faq" className="table" cellPadding="0" cellSpacing="0">
+      <caption>FAQ</caption>
+      <tbody>
       {data.allPrismicFaq.edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link to={node.uid}>
-            {node.data.question.text}
-          </Link>
-        </div>
+        <tr key={node.id}>
+          <td className="accordion" onClick={toggleClass}>
+            <div className="link">{node.data.question.text}
+              <span className="arrow">
+                <img src={iconArrow} width="16" height="26" alt=""/>
+              </span>
+            </div>
+          </td>
+          <td className="description" dangerouslySetInnerHTML={{ __html: node.data.answer.html }}/>
+        </tr>
       ))}
-    </div>
+      </tbody>
+    </table>
   )
 }
 
 export const query = graphql`
   query {
-    allPrismicFaq {
+    allPrismicFaq(filter: {tags: {in: "ios"}}) {
       edges {
         node {
           id
-          uid
           data {
             question {
               text
