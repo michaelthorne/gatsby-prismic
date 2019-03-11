@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -26,9 +25,6 @@ function IndexPage (props) {
   const faq = props.data.allPrismicFaq
   return (
     <Layout>
-      <Helmet bodyAttributes={{
-        class: 'bg-light',
-      }}/>
       <SEO title="FAQ"/>
       <div className="section">
         <table id="faq" className="table" cellPadding="0" cellSpacing="0">

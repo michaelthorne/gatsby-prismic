@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
@@ -26,6 +27,9 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Header siteTitle={data.site.siteMetadata.title}/>
+        <Helmet bodyAttributes={{
+          class: 'bg-light',
+        }}/>
         <main id="content">{children}</main>
       </>
     )}

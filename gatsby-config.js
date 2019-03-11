@@ -1,12 +1,12 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `prismic.io and GatsbyJS`,
+    description: `Experiment using prismic.io and GatsbyJS`,
+    author: `@mikkelz_za`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -41,6 +41,6 @@ module.exports = {
         accessToken: `${process.env.API_KEY}`,
         linkResolver: ({ node, key, value }) => faq => `/${faq.uid}`,
       },
-    }
+    },
   ],
 }
