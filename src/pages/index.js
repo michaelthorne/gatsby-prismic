@@ -2,11 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
+import SEO from '../components/seo'
+
 import iconArrow from '../images/icon-arrow.svg'
 
 export default ({ data }) => {
   return (
     <Layout>
+      <SEO title="FAQ"/>
       <table id="faq" className="table" cellPadding="0" cellSpacing="0">
         <caption>FAQ</caption>
         <tbody>
