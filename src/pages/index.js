@@ -7,7 +7,8 @@ import SEO from '../components/seo'
 import iconArrow from '../images/icon-arrow.svg'
 import iconHelp from '../images/icon-help.svg'
 
-export default ({ data }) => {
+function IndexPage(props) {
+  const faq = props.data.allPrismicFaq
   return (
     <Layout>
       <SEO title="FAQ"/>
@@ -15,7 +16,7 @@ export default ({ data }) => {
         <table id="faq" className="table" cellPadding="0" cellSpacing="0">
           <caption>FAQ</caption>
           <tbody>
-          {data.allPrismicFaq.edges.map(({ node }) => (
+          {faq.edges.map(({ node }) => (
             <tr key={node.id}>
               <td className="accordion">
                 <div className="link">{node.data.question.text}
@@ -34,6 +35,7 @@ export default ({ data }) => {
       <div className="section">
         <table className="table" cellPadding="0" cellSpacing="0">
           <caption>Have more questions?</caption>
+          <tbody>
           <tr id="help-center">
             <td>
               <a className="link has-icon" href="https://intercom.help/over">
@@ -42,11 +44,14 @@ export default ({ data }) => {
               </span>Help Center</a>
             </td>
           </tr>
+          </tbody>
         </table>
       </div>
     </Layout>
   )
 }
+
+export default IndexPage
 
 export const query = graphql`
   query {
