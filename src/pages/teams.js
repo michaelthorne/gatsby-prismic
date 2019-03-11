@@ -8,7 +8,7 @@ import HelpCenter from '../components/helpCenter'
 import iconArrow from '../images/icon-arrow.svg'
 import toggleFaq from '../utils/toggleFaq'
 
-function IndexPage (props) {
+function TeamsPage (props) {
   const faq = props.data.allPrismicFaq
   return (
     <Layout>
@@ -38,7 +38,7 @@ function IndexPage (props) {
   )
 }
 
-export default IndexPage
+export default TeamsPage
 
 export const query = graphql`
   query {
