@@ -7,7 +7,7 @@ import SEO from '../components/seo'
 import iconArrow from '../images/icon-arrow.svg'
 import iconHelp from '../images/icon-help.svg'
 
-function IndexPage(props) {
+function IndexPage (props) {
   const faq = props.data.allPrismicFaq
   return (
     <Layout>
