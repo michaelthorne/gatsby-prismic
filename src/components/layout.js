@@ -10,7 +10,6 @@ import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from './header'
 import '../styles/main.css'
 
 const Layout = ({ children }) => (
@@ -26,7 +25,6 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title}/>
         <Helmet bodyAttributes={{
           class: 'bg-light',
         }}/>
