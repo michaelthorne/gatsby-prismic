@@ -69,7 +69,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    allPrismicFaq(filter: {tags: {in: "ios"}}) {
+    allPrismicFaq(filter: {tags: {in: "ios"}}, sort: { fields: [data___posted], order: DESC}) {
       edges {
         node {
           id
