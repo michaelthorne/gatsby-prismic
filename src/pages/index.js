@@ -8,7 +8,17 @@ import iconArrow from '../images/icon-arrow.svg'
 import iconHelp from '../images/icon-help.svg'
 
 function toggleFaq (e) {
-  e.target.parentElement.classList.toggle('is-open')
+  const el = e.target
+  const question = el.parentElement
+  const answer = question.nextSibling
+
+  question.classList.toggle('is-open')
+
+  if (answer.style.maxHeight) {
+    answer.style.maxHeight = null
+  } else {
+    answer.style.maxHeight = answer.scrollHeight + 'px'
+  }
 }
 
 function IndexPage (props) {
