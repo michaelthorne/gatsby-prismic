@@ -60,6 +60,8 @@ public
 
 # Mac files
 .DS_Store
+.env.development
+.env.production
 
 # Yarn
 yarn-error.log
