@@ -7,6 +7,10 @@ import SEO from '../components/seo'
 import iconArrow from '../images/icon-arrow.svg'
 import iconHelp from '../images/icon-help.svg'
 
+function toggleFaq (e) {
+  e.target.parentElement.classList.toggle('is-open')
+}
+
 function IndexPage (props) {
   const faq = props.data.allPrismicFaq
   return (
@@ -18,7 +22,7 @@ function IndexPage (props) {
           <tbody>
           {faq.edges.map(({ node }) => (
             <tr key={node.id}>
-              <td className="accordion">
+              <td className="accordion" onClick={(e) => toggleFaq(e)}>
                 <div className="link">{node.data.question.text}
                   <span className="arrow">
                   <img src={iconArrow} width="16" height="26" alt=""/>

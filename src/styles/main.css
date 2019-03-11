@@ -427,6 +427,10 @@ input[disabled] {
   transition: max-height 0.25s ease-out;
 }
 
+table td.is-open + .description {
+  max-height: 100rem;
+}
+
 .table .arrow {
   float: right;
   padding-left: 0.5em;
