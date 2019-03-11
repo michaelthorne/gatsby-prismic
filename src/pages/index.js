@@ -5,28 +5,45 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import iconArrow from '../images/icon-arrow.svg'
+import iconHelp from '../images/icon-help.svg'
 
 export default ({ data }) => {
   return (
     <Layout>
       <SEO title="FAQ"/>
-      <table id="faq" className="table" cellPadding="0" cellSpacing="0">
-        <caption>FAQ</caption>
-        <tbody>
-        {data.allPrismicFaq.edges.map(({ node }) => (
-          <tr key={node.id}>
-            <td className="accordion">
-              <div className="link">{node.data.question.text}
-                <span className="arrow">
+      <div className="section">
+        <table id="faq" className="table" cellPadding="0" cellSpacing="0">
+          <caption>FAQ</caption>
+          <tbody>
+          {data.allPrismicFaq.edges.map(({ node }) => (
+            <tr key={node.id}>
+              <td className="accordion">
+                <div className="link">{node.data.question.text}
+                  <span className="arrow">
                   <img src={iconArrow} width="16" height="26" alt=""/>
                 </span>
-              </div>
+                </div>
+              </td>
+              <td className="description" dangerouslySetInnerHTML={{ __html: node.data.answer.html }}/>
+            </tr>
+          ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="section">
+        <table className="table" cellPadding="0" cellSpacing="0">
+          <caption>Have more questions?</caption>
+          <tr id="help-center">
+            <td>
+              <a className="link has-icon" href="https://intercom.help/over">
+              <span className="icon">
+                <img src={iconHelp} width="28" height="28" alt=""/>
+              </span>Help Center</a>
             </td>
-            <td className="description" dangerouslySetInnerHTML={{ __html: node.data.answer.html }}/>
           </tr>
-        ))}
-        </tbody>
-      </table>
+        </table>
+      </div>
     </Layout>
   )
 }
