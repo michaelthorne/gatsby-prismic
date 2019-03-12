@@ -39,15 +39,5 @@ module.exports = {
         accessToken: `${process.env.API_KEY}`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-prismic-preview',
-      options: {
-        repositoryName: 'gatsby-source-prismic-test-site',
-        linkResolver (doc) {
-          return `${doc.tag}`
-        },
-        path: '/preview',
-      },
-    },
   ],
 }
