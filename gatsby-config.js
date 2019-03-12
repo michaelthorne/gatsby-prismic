@@ -43,8 +43,11 @@ module.exports = {
       resolve: 'gatsby-plugin-prismic-preview',
       options: {
         repositoryName: 'gatsby-source-prismic-test-site',
+        linkResolver (doc) {
+          return `${doc.tag}`
+        },
         path: '/preview',
-      }
-    }
+      },
+    },
   ],
 }
