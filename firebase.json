@@ -6,6 +6,12 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "rewrites": [
+      {
+        "source": "webhook/prismic",
+        "function": "prismic"
+      }
+    ],
     "headers": [
       {
         "source": "/sw.js",
@@ -44,5 +50,8 @@
         ]
       }
     ]
+  },
+  "functions": {
+    "source": "functions"
   }
 }
