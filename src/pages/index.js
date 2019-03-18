@@ -7,13 +7,21 @@ import FAQ from '../components/faq'
 import HelpCenter from '../components/helpCenter'
 
 class IndexPage extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      title: 'FAQ'
+    }
+  }
+
   render () {
     const faq = this.props.data.allPrismicFaq.edges
     return (
-      <Layout>
-        <SEO title="FAQ"/>
+      <Layout title="FAQ">
+        <SEO title={this.state.title}/>
         <div className="section">
-          <FAQ faq={faq}/>
+          <FAQ title={this.state.title} faq={faq}/>
         </div>
 
         <HelpCenter/>

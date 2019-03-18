@@ -11,6 +11,7 @@ class TeamsPage extends Component {
     super(props)
 
     this.state = {
+      title: 'Over Teams FAQ',
       email: 'helloteams@overhq.com',
     }
   }
@@ -19,9 +20,9 @@ class TeamsPage extends Component {
     const faq = this.props.data.allPrismicFaq.edges
     return (
       <Layout>
-        <SEO title="FAQ"/>
+        <SEO title={this.state.title}/>
         <div className="section">
-          <FAQ faq={faq}/>
+          <FAQ title={this.state.title} faq={faq}/>
         </div>
 
         <HelpCenter email={this.state.email}/>

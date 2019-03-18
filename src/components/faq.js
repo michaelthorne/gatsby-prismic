@@ -6,7 +6,7 @@ import iconArrow from '../images/icon-arrow.svg'
 const Faq = (props) => {
   return (
     <table id="faq" className="table" cellPadding="0" cellSpacing="0">
-      <caption>FAQ</caption>
+      <caption>{props.title}</caption>
       <tbody>
       {props.faq.map(({ node }) => (
         <tr key={node.id}>
