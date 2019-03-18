@@ -13,14 +13,12 @@ exports.handler = (req, res) => {
     json: true,
   }
 
-  const callback = (error, response, body) => {
+  request(options, (error, response) => {
     if (!error && response.statusCode === 200) {
       res.status(200).send(':)')
     } else {
       console.error(error)
       res.status(response.statusCode).send(':(')
     }
-  }
-
-  request(options, callback)
+  })
 }

@@ -1,9 +1,9 @@
 const functions = require('firebase-functions')
-const prismic = require('./prismic')
+const wercker = require('./wercker')
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
-exports.prismic = functions.https.onRequest((req, res) => {
-  prismic.handler(req, res)
+exports.wercker = functions.https.onRequest((req, res) => {
+  wercker.handler(req, res)
 })
