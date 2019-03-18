@@ -1,12 +1,14 @@
 box: node
 build:
   steps:
-    - npm-install
     - script:
         name: install dependencies
         code: |
-          npm ci
-          cd functions; npm ci
+          yarn
+          cd functions; yarn
+    - script:
+        name: build gatsby
+        code: yarn run build
     - script:
         name: echo nodejs information
         code: |
