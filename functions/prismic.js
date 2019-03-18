@@ -5,7 +5,7 @@ exports.handler = (req, res) => {
     url: 'https://app.wercker.com/api/v3/runs/',
     method: 'POST',
     headers: {
-      'Authorization': 'Bearer c69da77c1b8bbea3cfd06db208bd7d1271f11eaa5a74d80ad5fa049f2ae5bdd9',
+      'Authorization': `'Bearer ${process.env.WERCKER_ACCESS_TOKEN}'`,
     },
     body: {
       'pipelineId': '5c8b6176c910281000b360d9',
@@ -13,9 +13,14 @@ exports.handler = (req, res) => {
     json: true,
   }
 
-  request(options, function (error, response, body) {
+  const callback = (error, response, body) => {
+    if (!error && response.statusCode === 200) {
+      res.status(200).send(':)')
+    } else {
+      console.error(error)
+      res.status(response.statusCode).send(':(')
+    }
+  }
 
-  })
-
-  res.status(200).send('¯\\_(ツ)_/¯')
+  request(options, callback)
 }
