@@ -34,7 +34,7 @@ export default AndroidPage
 
 export const query = graphql`
   query {
-    allPrismicFaq(filter: {tags: {in: "android"}}, sort: { fields: [data___posted], order: DESC}) {
+    allPrismicFaq(filter: {lang: {eq: "en-za"}, tags: {in: "android"}}, sort: { fields: [data___posted], order: DESC}) {
       edges {
         node {
           id

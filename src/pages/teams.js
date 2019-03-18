@@ -34,7 +34,7 @@ export default TeamsPage
 
 export const query = graphql`
   query {
-    allPrismicFaq(filter: {tags: {in: "teams"}}, sort: { fields: [data___posted], order: DESC}) {
+    allPrismicFaq(filter: {lang: {eq: "en-za"}, tags: {in: "teams"}}, sort: { fields: [data___posted], order: DESC}) {
       edges {
         node {
           id
