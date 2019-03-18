@@ -1,4 +1,5 @@
-box: node
+box:
+  id: node:latest
 build:
   steps:
     - script:
@@ -16,7 +17,6 @@ build:
           echo "npm version $(npm -v) running"
 
 deploy:
-  box: node
   steps:
     - script:
         name: install firebase
@@ -27,3 +27,10 @@ deploy:
     - script:
         name: deploy
         code: firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+
+notify:
+  steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: gatsby-prismic-bots
+        username: werckerbot
