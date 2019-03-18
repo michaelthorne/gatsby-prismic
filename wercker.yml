@@ -1,5 +1,4 @@
-box:
-  id: node:latest
+box: node
 build:
   steps:
     - script:
@@ -17,6 +16,7 @@ build:
           echo "npm version $(npm -v) running"
 
 deploy:
+  box: node
   steps:
     - script:
         name: install firebase
