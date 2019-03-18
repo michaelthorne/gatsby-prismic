@@ -8,8 +8,8 @@
     ],
     "rewrites": [
       {
-        "source": "webhook/prismic",
-        "function": "prismic"
+        "source": "webhook/wercker",
+        "function": "wercker"
       }
     ],
     "headers": [
